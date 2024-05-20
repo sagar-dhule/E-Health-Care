@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthCare Management System</title>
+  <style>
+    body {
+      padding-top: 100px; 
+    }.center-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(50vh - 100px); 
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <app-navbar></app-navbar>
+  </header>
+
+  <div class="container mb-8">
+    <div class="row">
+      <div style="color: rgb(0, 19, 128); font-weight: bolder; font-family: aladin; letter-spacing: 1px; font-size: 40px;"><b>Welcome to HealthCare Management System Patient Dashboard</b></div>
+    </div>
+  </div>
+
+  <div class="container mb-8" style="display: flex; justify-content: flex-end; margin-right: 120px;">
+    <button class="form-group btn btn-outline-success btn-register" (click)="openBookAppointmentModal()" style="background-color: blue; color: white;">Book Appointment</button>
+  </div>
+  <br>
+  <br>
+
+  <div class="centered-content">
+    <table>
+      <thead>
+        <tr>
+          <th *ngIf="appointments && appointments.length > 0">Appointment ID</th>
+          <th *ngIf="appointments && appointments.length > 0">Patient Name</th>
+          <th *ngIf="appointments && appointments.length > 0">Doctor Name</th>
+          <th *ngIf="appointments && appointments.length > 0">Date</th>
+          <th *ngIf="appointments && appointments.length > 0">Time Slot</th>
+          <th *ngIf="appointments && appointments.length > 0">Status</th>
+          <th *ngIf="appointments && appointments.length > 0">Payment</th>
+          <th *ngIf="appointments && appointments.length > 0">Report</th>
+          <th *ngIf="appointments && appointments.length > 0">View Prescription</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td *ngIf="appointments && appointments.length > 0">{{ appointment.id }}</td>
+          <td *ngIf="appointments && appointments.length > 0">{{ appointment.patientname }}</td>
+          <td *ngIf="appointments && appointments.length > 0">{{ appointment.doctorname }}</td>
+          <td *ngIf="appointments && appointments.length > 0">{{ appointment.date}}</td>
+          <td *ngIf="appointments && appointments.length > 0">{{ appointment.slot }}</td>
+          <td *ngIf="appointments && appointments.length > 0">{{ appointment.status }}</td>
+          <td *ngIf="appointments && appointments.length > 0">{{ appointment.payment }}</td>
+          <!-- <td><a *ngIf="appointment.reportLink" href="{{ appointment.reportLink }}" target="_blank">View Report</a></td> -->
+
+          <td *ngIf="appointments && appointments.length > 0">
+            <span>
+              <img src="assets/images/notes-medical-solid.svg" alt="Add Report" (click)="addReport(appointment.id)" title="Add Report" style="cursor: pointer; width: 20px; height: 20px; margin-right: 10px;"> <!-- Add Report Icon -->
+            </span>
+           
+           
+          </td> 
+          <!-- <td *ngIf="appointment.status=='confirmed' && appointment.payment=='paid'"> -->
+<td>
+            <span>
+              <img src="assets/images/eye-solid.svg"  alt="View Prescription"
+                (click)="openPrescriptionModal(appointment.patientid,appointment.id)" title="View Prescription"
+                style="cursor: pointer; width: 20px; height: 20px; margin-right: 10px;"> <!-- Add Report Icon -->
+            </span>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!appointments || appointments.length === 0">
+      <p style="font-weight: bolder;">We couldn't find any appointments. Do you want to book one?</p>
+      <!-- <div class="modal-footer">
+        <button class="form-group btn btn-outline-success btn-register" (click)="openBookAppointmentModal()">Book Appointment</button>
+      </div> -->
+    </div>
+  </div>
+<!-- 
+  <div *ngIf="showModal">
+    <iframe [src]="pdfSrc" width="100%" height="500px"></iframe>
+  </div> -->
+</body>
+</html>

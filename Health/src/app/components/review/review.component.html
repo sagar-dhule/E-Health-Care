@@ -1,0 +1,50 @@
+<div class="modal-body" [ngClass]="{'show': showModal}">
+    <div class="modal-header">
+
+        <h5 class="modal-title">Add Review</h5>
+        <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+    </div>
+
+    <form [formGroup]="reviewform" (ngSubmit)="saveReview()">
+
+        <div class="form-group">
+            <label for="specialization">Specialization : <b class="text-danger">*</b><small
+                    style="color: gray; font-size: 12px;">(choose from dropdown)</small></label>
+            <select class="form-control" formControlName="specialization">
+                <option selected disabled>Select speciality</option>
+                <option *ngFor="let speciality of specializations" [value]="speciality.id">{{ speciality.title }}
+                </option>
+            </select>
+            <small class="text-danger"
+                *ngIf="reviewform.get('specialization')?.invalid && reviewform.get('specialization')?.touched"><b>required
+                    field</b></small>
+        </div>
+
+        <div class="form-group">
+            <label for="doctor">Choose Doctor : <b class="text-danger">*</b><small
+                    style="color: gray; font-size: 12px;">(choose from dropdown)</small></label>
+            <select class="form-control" formControlName="doctorname">
+                <option selected disabled>Select doctor</option>
+                <option *ngFor="let doctor of doctors" [value]="doctor.doctorid">{{ doctor.doctorname }}</option>
+            </select>
+            <small class="text-danger"
+                *ngIf="reviewform.get('doctorname')?.invalid && reviewform.get('doctorname')?.touched"><b>required
+                    field</b></small>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="reviewtext">Review:</label>
+            <textarea class="form-control" rows="3" formControlName="reviewtext"></textarea>
+        </div>
+
+
+        <button style="margin-top: 15px;" [disabled]="reviewform.invalid" type="submit" class="btn registerbtn"><i
+                class="fa fa-plus"></i>&nbsp; Save</button>
+    </form>
+
+</div>

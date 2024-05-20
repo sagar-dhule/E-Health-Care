@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://unpkg.com/@tabler/core@1.0.0-beta9/dist/css/tabler.min.css">
+  <table class="table table-vcenter">
+    <thead>
+        <tr>
+            <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Patient Name</th>
+            <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Email</th>
+            <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Phone Number</th>
+            <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Address</th>
+            <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Gender</th>
+            <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Age</th>
+            <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Lab Report</th>
+          </tr>
+          
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <!-- <td style="width: 200px;"><img class="avatar" [src]="'data:image/jpeg;base64,' + patient.image">&nbsp;</td> -->
+
+        <td style="width: 80px;">{{patient.patientname}}</td>
+        <td style="width: 60px;">{{patient.email}}</td>
+        <td style="width: 60px;">{{patient.mobile}}</td>
+        <td style="width: 150px;">{{patient.address}}</td>
+        <td style="width: 100px;">{{patient.gender}}</td>
+        <td style="width: 100px;">{{patient.age}}</td>
+        <td style="width: 100px;">
+            <button type="button" class="btn btn-primary" (click)="showReportDetails(patient.reportlist)">View Reports</button>
+        </td>    
+        
+      </tr>
+    </tbody>
+  </table>
+  
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+.btn-check:active{
+    border: #82ae46;
+}
+input[type="radio"]{
+    color: #82ae46 !important;
+}
+form{
+    width: 600px;
+}
+div.card {
+    height: 650px;
+    display: inline-block;
+    margin-left: 24%;
+    border: #82ae46;
+    
+
+}
+/* .form-group{
+   padding: 2px;
+} */
+.btnAdd{
+    background-color: #82ae46;
+    border: #82ae46;
+    position: relative;
+    left: 45%;
+}
+.btnAdd:hover{
+    background-color: #82ae46;
+    border: #82ae46;
+}
+h2{
+    color: #82ae46;
+    position: relative;
+    left: 40%;
+}
+.btn-check{
+    border: 1px,solid,#82ae46 ;
+}
+
+.card-footer{
+    background-color: white;
+}
+option:hover{
+    background-color: #82ae46;
+}
+i{
+    cursor: pointer;
+    position: relative;
+    left: 75%;
+}

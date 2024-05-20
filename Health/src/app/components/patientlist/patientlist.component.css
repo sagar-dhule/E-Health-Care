@@ -1,0 +1,109 @@
+
+/* .categories.active{
+    color: white;
+    background-color: #82ae46;
+    border-color: #82ae46;
+    
+} */
+.categories.active {
+    color: #82ae46;
+    font-size: 18px;
+    background-color: #f5f7fb !important;
+    box-shadow: none;
+    border: 0;
+}
+.main-tabs .active a{
+    background-color: #82ae46 !important;
+    color: #fff !important;
+    border: 0;
+}
+.vegetable-types {
+    position: relative;
+    left: 18%;
+}
+
+span{
+    margin: 4px;
+    color: #82ae46;
+    font-size: 50px;
+}
+/* .btn{
+   background-color: rgb(245,247,251); 
+   border: none;
+} */
+a{
+    font-size: 18px;
+    
+}
+
+.product-table{
+    position: absolute;
+    left: -15%;
+    top: 160%;
+}
+.button{
+    background-color: #82ae46;
+    border: #82ae46;
+}
+.button:hover{
+    background-color: #82ae46;
+    border: #82ae46;
+}
+.addDoctorButton{
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 5px;
+    /* position: absolute;
+    top: 10%;
+    right: 1%; */
+}
+.doc-types{
+    text-align: center;
+}
+.table-responsive{
+    margin-top: 4%;
+    margin-left: 2%;
+}
+.table{
+    width: 97%;
+}
+img{
+    display: inline-block;
+}
+p{
+    display: inline-block; 
+    margin-bottom: 10px;
+}
+.avatar{
+    width: 50px;
+    height: 50px;
+}
+.navigation-button{
+    cursor: pointer;
+    color: #82ae46;
+    text-decoration: none;
+}
+/* .searchButton{
+    border: #82ae46;
+} */
+.updateButton{
+    background-color: #82ae46;
+    color: white;
+}
+i{
+    color: #82ae46;
+    cursor: pointer;
+}
+.addProductButton {
+    position: relative;
+    left: 90%;
+}
+input.form-control.ng-untouched.ng-pristine.ng-valid {
+    height: 38px!important;
+}
+.float-right.grid-button.mt-1 {
+   
+    position: relative;
+    left: 85%;
+}
+

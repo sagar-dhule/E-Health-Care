@@ -1,0 +1,46 @@
+<nav class="navbar navbar-light bg-light fixed-top">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a href="home.component.html" class="navbar-brand logo"><b>Health Care System</b></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="isCollapsed = !isCollapsed"
+      aria-controls="main-nav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      
+    </button>
+    <ul class="navbar-nav nav-horizontal" [ngClass]="{'collapsed': isCollapsed, 'expanded': !isCollapsed}">
+      <li class="nav-item">
+        <a (click)="home()" class="nav-link me-3" style="cursor: pointer; transition: color 0.3s, background-color 0.3s;">Home</a>
+      </li>
+     
+      
+      <li class="nav-item" *ngIf="isPatient()">
+        <a (click)="openPayment()" class="nav-link me-3" style="cursor: pointer; transition: color 0.3s, background-color 0.3s;">Payment</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isPatient()">
+        <a (click)="openReview()" class="nav-link me-3" style="cursor: pointer; transition: color 0.3s, background-color 0.3s;">Review</a>
+      </li>
+      <!-- <li class="nav-item" *ngIf="isPatient()">
+        <a routerLink="/labreport" class="nav-link me-3">Report</a>
+      </li> -->
+
+
+      <li class="nav-item" *ngIf="isDoctor()">
+        <a routerLink="/doctor-dashboard" class="nav-link me-3">Appointments</a>
+      </li>
+  
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{firstname}}</a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- <li><a class="dropdown-item" routerLink="/userprofile">Profile</a></li> -->
+          <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

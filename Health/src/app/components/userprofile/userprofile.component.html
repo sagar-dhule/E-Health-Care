@@ -1,0 +1,76 @@
+
+
+<div class="row" id="profilecard">
+    <div *ngFor="let user of profileDetails | async" id="bloodCards">
+        <a><img *ngIf="user.gender === 'Male' || user.gender === 'male'" class="bloodimg" [src]="'assets/img/maleuser.png'" width="120" height="120"></a>
+        <a><img *ngIf="user.gender === 'Female' || user.gender === 'female'" class="bloodimg" [src]="'assets/img/femaleuser.png'" width="120" height="120"></a>
+        <div class="card-block">
+            <div class="text"><b style="color: navy;">User Name : </b><b class="element" style="margin-left: 53px;"> {{user.username}}</b> </div>
+            <div class="text"><b style="color: navy;">Mobile Number : </b><b class="element" style="margin-left: 12px;"> {{user.mobile}}</b> </div>
+            <div class="text"><b style="color: navy;">Gender : </b><b class="element" style="margin-left: 80px;"> {{user.gender}}</b> </div>
+            <div class="text"><b style="color: navy;">Mail ID : </b><b class="element" style="margin-left: 78px;"> {{user.email}}</b> </div>
+            <div class="text"><b style="color: navy;">Age : </b><b class="element" style="margin-left: 110px;"> {{user.age}} years</b> </div>
+            <div class="btndiv" style="align-items: center;"><button class="editbtn" (click)="editProfile()"><i class="fa fa-edit"></i> edit</button></div>
+            <small id="message" *ngIf="temp === true" style="text-align: center; margin-top: 3%; color: green;"><b>Profile Updated Successfully !!!</b></small> 
+          </div>
+    </div>
+  </div>
+  
+  <div class="container" id="profileform">
+    <h3 class="textual">Update User Profile</h3>
+    <form [formGroup]="Updateform" (ngSubmit)="updateUserProfile()">
+      <small *ngIf="temp === false" style="text-align: center; color: navy;"><b>Dear {{loggedUser.firstname}}, update your profile here</b></small>
+      <small *ngIf="temp === true" style="text-align: center; color: green;"><b>Profile Updated Successfully !!!</b></small>
+      <div class="form-group">
+        <label for="email">Email : <b class="text-danger">*</b></label>
+        <input type="email" class="form-control" id="email" placeholder="enter email" formControlName="email">
+        <div *ngIf="Updateform.get('email')!.invalid && Updateform.get('email')!.touched">
+          <b class="text-danger">Invalid email Id</b>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="username">UserName: <b class="text-danger">*</b></label>
+        <input type="text" class="form-control" placeholder="enter username" formControlName="username">
+        <div *ngIf="Updateform.get('username')!.invalid && Updateform.get('username')!.touched">
+          <b class="text-danger">Username is required</b>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="gender">Gender: <b class="text-danger">*</b></label>
+        <select class="form-control" formControlName="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="age">Age: <b class="text-danger">*</b></label>
+        <input type="number" class="form-control" placeholder="enter your age" formControlName="age">
+        <div *ngIf="Updateform.get('age')!.invalid && Updateform.get('age')!.touched">
+          <b class="text-danger">Age is required</b>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="mobile">Mobile Number: <b class="text-danger">*</b></label>
+        <input type="tel" class="form-control" placeholder="enter mobile number" formControlName="mobile">
+        <div *ngIf="Updateform.get('mobile')!.invalid && Updateform.get('mobile')!.touched">
+          <b class="text-danger">Mobile number is required</b>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="pwd">Password: <b class="text-danger">*</b></label>
+        <input type="password" class="form-control" placeholder="enter password" formControlName="password">
+        <div *ngIf="Updateform.get('password')!.invalid && Updateform.get('password')!.touched">
+          <b class="text-danger">Password is required</b>
+        </div>
+      </div>
+  
+      <button [disabled]="Updateform.invalid" type="submit" class="btn registerbtn">Update</button>
+    </form>
+  </div>
+  

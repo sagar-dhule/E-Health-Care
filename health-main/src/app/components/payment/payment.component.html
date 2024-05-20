@@ -1,0 +1,118 @@
+<!-- 
+<div class="modal-body" [ngClass]="{'show': showModal}">
+  <div class="modal-header">
+    <h5 class="modal-title">User Profile</h5>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+  <div class="card-body">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3 form-group">
+        <label for="email">First Name:</label>
+        <input type="text" class="form-control" autocomplete="off" placeholder="First Name*" formControlName="firstname" required>
+        <small class="text-danger" *ngIf="userForm.get('firstname')?.invalid && userForm.get('firstname')?.touched">
+          Please Enter First Name
+        </small>
+      </div>
+
+      <div class="mb-3 form-group">
+        <label for="email">Last Name:</label>
+        <input type="text" class="form-control" autocomplete="off" placeholder="Last Name*" formControlName="lastname" required>
+        <small class="text-danger" *ngIf="userForm.get('lastname')?.invalid && userForm.get('lastname')?.touched">
+          Please Enter Last Name
+        </small>
+      </div>
+
+      <div class="mb-3 form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+      </div>
+      
+      <div class="mb-3 form-group">
+        <label for="gender">Gender:</label>
+        <input type="text" class="form-control" formControlName="gender">
+      </div>
+      
+      <div class="mb-3 form-group">
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" class="form-control" formControlName="mobile" pattern="^\+?[1-9]\d{1,14}$" title="Please enter a valid mobile number">
+        <small class="text-danger" *ngIf="userForm.get('mobile')?.invalid && userForm.get('mobile')?.touched">
+          Please Enter a Valid Mobile Number
+        </small>
+      </div>
+
+      <div class="card-body">
+        <h4 class="billing-heading">Pay Your Appointment Fee Here</h4>
+        <hr>
+        <p class="d-flex justify-content-lg-between">
+          <span class="subtitle">TOTAL</span>
+          <span class="fw-bold text-black">Rs.{{Total}}</span>
+        </p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12 d-flex justify-content-end">
+          <div class="Primary-btn">
+            <button type="submit" class="btn primary-col btn-lg">Pay</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+  <div class="modal-header">
+    <h4 class="modal-title">Make a Payment</h4>
+    <!-- <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+  </div>
+  <div class="modal-body">
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@1.0.0-beta9/dist/css/tabler.min.css">
+
+  <table class="table table-vcenter">
+    <thead>
+      <tr>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">ID</th>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;"><b>Doctor Name</b></th>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Patient Name</th>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Amount</th>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of paymentDetails ">
+        <td style="width: 100px;">{{payment.id}}</td>
+        <td style="width: 100px;">{{payment.doctorname}}</td>
+        <td style="width: 100px;">{{payment.patientname}}</td>
+        <td style="width: 100px;">{{payment.amount}}</td>
+        <td style="width: 100px;">
+          <ng-container *ngIf="payment.payment === 'pending'; else paidBlock">
+            <button type="button" class="btn btn-primary" (click)="pay(payment)">Pay</button>
+          </ng-container>
+          <ng-template #paidBlock>
+            <span class="paid-text">Paid</span>
+          </ng-template>
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+  
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+    
+  </div>
+  

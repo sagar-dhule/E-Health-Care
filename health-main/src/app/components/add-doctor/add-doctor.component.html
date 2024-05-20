@@ -1,0 +1,88 @@
+
+<div class="card">
+    <div class="card-header">
+        <h2>Add Doctor</h2>
+        <i class="fa fa-times" aria-hidden="true" routerLink="admin/doctors"></i>
+    </div>
+
+    <div class="card-body">
+        <form name="form" [formGroup]="addDoctorForm" enctype="multipart/form-data">
+
+            <div class="mb-3 form-group">
+                <label class="form-label">Doctor Name</label>
+                <input type="text" class="form-control" autocomplete="off" placeholder="Doctor Name"
+                    formControlName="doctorname" required>
+                <small class="text-danger"
+                    *ngIf="addDoctorForm.get('doctorname')!.valid && addDoctorForm.get('doctorname')!.touched">
+                    Please Enter Doctor Name</small>
+            </div>
+
+            <div class="mb-3 form-group ">
+                <label class="form-label">Specialty</label>
+                <input class="form-control" autocomplete="off" placeholder="Specialty" 
+                formControlName="specialty" required>
+                <small class="text-danger"
+                    *ngIf="addDoctorForm.get('specialty')!.valid && addDoctorForm.get('specialty')!.touched">
+                    Please Enter Specialty</small>
+            </div>
+            <div class="row">
+            <div class="mb-3 form-group">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control" autocomplete="off" placeholder="Email" 
+                formControlName="email"
+                    required>
+                <small class="text-danger"
+                    *ngIf="addDoctorForm.get('email')!.valid && addDoctorForm.get('email')!.touched">
+                    Please Enter Email</small>
+            </div>
+
+            <div class="mb-3 form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="text" class="form-control" autocomplete="off" placeholder="Phone Number"
+                    formControlName="phonenumber" required>
+                <small class="text-danger"
+                    *ngIf="addDoctorForm.get('phonenumber')!.valid && addDoctorForm.get('phonenumber')!.touched">
+                    Please Enter Phone Number</small>
+            </div>
+        
+        
+            <div class="mb-3 form-group">
+                <label class="form-label">Qualification</label>
+                <input type="text" class="form-control" autocomplete="off" placeholder="Qualification"
+                    formControlName="qualification" required>
+                    <small class="text-danger"
+                    *ngIf="addDoctorForm.get('qualification')!.valid && addDoctorForm.get('qualification')!.touched">
+                    Please Enter Qualification</small>
+            </div>
+        </div>
+
+            <div class="mb-3 form-group ">
+                <label class="form-label">Upload Image</label>
+                <input type="file" class="form-control" autocomplete="off" placeholder="Upload Image"
+                    formControlName="image" (change)="onFileSelected($event)" required>
+                <small class="text-danger"
+                    *ngIf="addDoctorForm.get('image')!.valid && addDoctorForm.get('image')!.touched">
+                    Upload Image</small>
+            </div>
+
+
+            <div class="card-footer"><br>
+                <!-- <div class="mb-3 form-group ">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" autocomplete="off" >
+                        <label class="btn btnRadio"  *ngFor="let category of categories" (click)="OnCategoryClick(category.id)">{{category.title}}</label>
+                      </div>
+                </div> -->
+                <div class="mb-3 form-group ">
+                    <button type="submit" class="btn btn-success btnAdd" (click)="onSubmit(addDoctorForm.value)">Add</button>
+
+                </div>
+            </div>
+           
+        </form>
+        <div class="alert alert-success" *ngIf="doctorAdd">
+             Added successfully.
+          </div>
+          
+    </div>
+</div>

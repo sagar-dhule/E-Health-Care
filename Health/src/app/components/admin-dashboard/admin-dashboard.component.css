@@ -1,0 +1,44 @@
+a.title{
+    text-decoration: none;
+}
+.nav-link-title{
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    
+}
+li{
+   margin-left: 25%; 
+   justify-content: center;
+}
+.order{
+    margin-left: 29%;
+}
+/* .page{
+    display: flex;
+    height: 100%;
+} */
+.page-body{
+    /* position: relative;
+    left: 37%; */
+    margin-left: 18%;
+}
+
+
+/* 
+aside{
+    background-color: #82ae46;
+}
+
+.collapse{
+    position: absolute;
+    top: 15%;
+}
+.nav-link{
+    position: absolute;
+    left: 80%;
+}
+.page-content-container{
+    position: relative;
+    left: 10%;
+} */

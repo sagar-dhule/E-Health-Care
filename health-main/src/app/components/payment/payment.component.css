@@ -1,0 +1,31 @@
+
+.editbtn
+{
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 5px 20px 5px 20px;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  background-color: #13534e;
+}
+.editbtn:hover{
+  cursor: pointer;
+}
+
+.btndiv{
+  margin-left: 40%;
+  align-content: center;
+}
+.modal-title {
+  flex-grow: 1; /* Allows the title to grow and occupy the available space */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 27px;
+  color: #82ae46;
+  text-align: center;
+}
+.paid-text {
+  font-weight: bold;
+  color: green;
+}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthCare Management System</title>
+  <style>
+    body {
+      padding-top: 100px;
+    }
+
+    .center-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(50vh - 100px);
+      /* Adjust for padding-top */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <app-navbar></app-navbar>
+  </header>
+
+  <div class="container mb-8">
+    <div class="row">
+      <div
+        style="color: rgb(0, 19, 128); font-weight: bolder;  letter-spacing: 1px; font-size: 40px;">
+        <b>Welcome to HealthCare Management System Doctor Dashboard</b></div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <div class="centered-content">
+
+
+      <div *ngIf="appointments && appointments.length > 0">
+        <table>
+          <thead>
+            <tr>
+              <th>Appointment ID</th>
+              <th>Patient Name</th>
+              <th>Date</th>
+              <th>Time Slot</th>
+              <th>Status</th>
+              <th>Action</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let appointment of appointments">
+              <td>{{ appointment.id }}</td>
+              <td>{{ appointment.patientname }}</td>
+              <td>{{ appointment.date }}</td>
+              <td>{{ appointment.slot }}</td>
+              <td (click)="openConfirmationDialog(appointment)"
+    [style.background-color]="getStatusColor(appointment.status)"
+    style="cursor: pointer; width: 20px; height: 20px; margin-right: 10px;"
+    title="Confirm the Appointment"
+    *ngIf="appointment.status !== 'confirmed'">{{ appointment.status }}</td>
+<td *ngIf="appointment.status === 'confirmed'"
+    [style.background-color]="'green'"
+    style="width: 20px; height: 20px; margin-right: 10px;"
+    title="Appointment Confirmed">{{ appointment.status }}</td>
+<td>
+
+                <span>
+                  <img src="assets/images/notes-medical-solid.svg" alt="Add Prescription"
+                    (click)="openPrescriptionModal(appointment.id,appointment.patientid)" title="Add Prescription"
+                    style="cursor: pointer; width: 20px; height: 20px; margin-right: 10px;"> <!-- Add Report Icon -->
+                </span>
+              </td>
+              <td>
+                <span>
+                  <img src="assets/images/eye-solid.svg" alt="View Report" (click)="getLabReports(appointment.reports)"
+                    title="View Report" style="cursor: pointer; width: 20px; height: 20px;"> <!-- View Report Icon -->
+
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="!appointments || appointments.length === 0">
+        <p style="font-weight: bolder;">We couldn't find any appointments.</p>
+      </div>
+
+    </div>
+
+</body>
+
+</html>

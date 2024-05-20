@@ -1,0 +1,75 @@
+<div class="card" *ngIf="loginModal" >
+
+    <div class="modal-header">
+        
+          <h5 class="modal-title">{{loginType}} Login</h5>
+          <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+      </div>
+  
+    <div class="modal-body">
+      <form name="form" [formGroup]="loginForm">
+  
+  
+        <div class="mb-3 form-group ">
+          <input type="email" class="form-control"  autocomplete placeholder="Email" formControlName="email"
+            required>
+          <small class="text-danger" *ngIf="!loginForm.get('email')!.valid && loginForm.get('email')!.touched">
+            Please Enter Valid Email</small>
+        </div>
+  
+        <div class="mb-3 form-group">
+          <input type="password" class="form-control"  autocomplete="off" placeholder="Password"
+            formControlName="password" required>
+          <small class="text-danger" *ngIf="!loginForm.get('password')!.valid && loginForm.get('password')!.touched">
+            Your Password Is Incorrect</small>
+  
+        </div>
+        
+  
+        <div class="modal-footer">
+          <!-- <a class="forgetPass" (click)="openForgotModal()" >Forgot Password</a> -->
+          <button type="submit" class="btn btn-outline-success btn-lg btn-login"
+            (click)="onSubmit(loginForm.value)" [disabled]="!loginForm.valid" (click)="dismiss()" >Login</button><br>
+          <p class="register">Don't have an account?&nbsp;<a class="registration" (click)="openRegisterModal()">Create One</a></p>
+        </div>
+        
+      </form>
+     
+        <div class="alert alert-danger"  *ngIf="isLoginFailed">
+          Invalid Email and Password.
+        </div>
+      
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+        Logged in successful.
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+     
+       
+        
+        
+        
+   
+  
+  
+  

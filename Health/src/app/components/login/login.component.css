@@ -1,0 +1,65 @@
+.btn-login{
+    position: absolute;
+    left:5%;
+    top:65%;
+    width: 300px;
+    height: 50px;
+    border-color: #82ae46;
+    color: #82ae46;
+}
+.btn-login:hover{
+  color: white;
+  background-color: #82ae46;
+}
+.card{
+    height: 450px;
+    width: 350px;
+    box-shadow: 0 0 10px black;
+    position: absolute;
+    left: 18%;
+  }
+   
+  .modal-title {
+    flex-grow: 1; /* Allows the title to grow and occupy the available space */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 27px;
+    color: #82ae46;
+    text-align: center;
+  }
+
+.modal-body{
+  height: 350px;
+}
+.form-control{
+  height: 60px !important;
+  outline: none;
+	border:none;
+  border-bottom: 3px solid #82ae46;
+  margin: 7px;
+}
+input::placeholder{
+  color: black;
+	text-align: center;
+}
+a.forgetPass{
+  position: absolute;
+  left: 2%;
+  
+}
+.register{
+  position: absolute;
+  top: 85%;
+  left: 10%;
+} 
+.forgetPass{
+    color: #82ae46;
+    cursor: pointer;
+}
+.registration{
+    color: #82ae46;
+    cursor: pointer;
+}
+.a{
+  padding-left: 10px;
+}

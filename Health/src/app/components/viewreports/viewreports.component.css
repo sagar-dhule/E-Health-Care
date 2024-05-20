@@ -1,0 +1,16 @@
+.modal-title {
+    flex-grow: 1; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 27px;
+    color: #82ae46;
+    text-align: center;
+  }
+
+  .center-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure the container takes up the full height of the modal */
+  }
+  

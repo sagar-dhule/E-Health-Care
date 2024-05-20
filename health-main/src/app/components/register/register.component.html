@@ -1,0 +1,117 @@
+
+<div class="modal-body" [ngClass]="{'show': showModal}">
+  <div class="modal-header">
+        
+  <h5 class="modal-title">Register</h5>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+</div>
+          <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <div class="mb-3 form-group">
+              <input type="text" class="form-control" autocomplete="off" placeholder="First Name*" formControlName="firstname" required>
+              <small class="text-danger" *ngIf="registrationForm.get('firstname')?.invalid && registrationForm.get('firstname')?.touched">
+                Please Enter First Name
+              </small>
+            </div>
+
+            <div class="mb-3 form-group">
+              <input type="text" class="form-control" autocomplete="off" placeholder="Last Name*" formControlName="lastname" required>
+              <small class="text-danger" *ngIf="registrationForm.get('lastname')?.invalid && registrationForm.get('lastname')?.touched">
+                Please Enter Last Name
+              </small>
+            </div>
+
+            <div class="mb-3 form-group">
+              <select class="form-select" autocomplete="off" formControlName="gender" required>
+                <option disabled selected value="">Select Gender*</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+              <small class="text-danger" *ngIf="registrationForm.get('gender')?.invalid && registrationForm.get('gender')?.touched">
+                Please select a gender.
+              </small>
+            </div>
+
+            <div class="mb-3 form-group">
+              <input type="number" class="form-control" formControlName="age" placeholder="Age*" required>
+              <small class="text-danger" *ngIf="registrationForm.get('age')?.invalid && registrationForm.get('age')?.touched">
+                Please Enter Valid Age
+              </small>
+            </div>
+
+            <div class="mb-3 form-group">
+              <input type="tel" class="form-control" formControlName="mobile" placeholder="Mobile Number*" inputmode="numeric" maxlength="10" required>
+              <small class="text-danger" *ngIf="registrationForm.get('mobile')?.invalid && registrationForm.get('mobile')?.touched">
+                Please enter a valid mobile number.
+              </small>
+            </div>
+
+            <div class="mb-3 form-group">
+              <select class="form-select" formControlName="type" required>
+                <option disabled selected value="">User Type*</option>
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+              </select>
+            </div>
+
+            <div class="mb-3 form-group" *ngIf="registrationForm.get('type')?.value === 'doctor'">
+              <input type="text" class="form-control" placeholder="Licence Number *" formControlName="lienceno">
+            </div>
+
+            <div class="mb-3 form-group" *ngIf="registrationForm.get('type')?.value === 'doctor'">
+              <select class="form-control" formControlName="specialization">
+                <option value="" selected disabled>Select speciality *</option>
+                <option *ngFor="let speciality of specializations" [value]="speciality.id">{{ speciality.title }}</option>
+              </select>
+              <small class="text-danger" *ngIf="registrationForm.get('specialization')?.invalid && registrationForm.get('specialization')?.touched">
+                <b>required field</b>
+              </small>
+            </div>
+            
+
+            <div class="mb-3 form-group" *ngIf="registrationForm.get('type')?.value === 'doctor'">
+              <input type="number" class="form-control" placeholder="Year Of Experience *" formControlName="experience">
+            </div>
+
+            <div class="mb-3 form-group">
+              <input type="text" class="form-control" placeholder="Address *" formControlName="address">
+            </div>
+          
+            <div class="mb-3 form-group">
+              <input type="email" class="form-control" autocomplete="off" placeholder="Email*" formControlName="email" required>
+              <small class="text-danger" *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+                Please Enter Valid mail
+              </small>
+            </div>
+
+            <div class="mb-3 form-group">
+              <input type="password" class="form-control" autocomplete="off" placeholder="Password*" formControlName="password" required>
+              <small class="text-danger" *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+                Please Enter Password
+              </small>
+            </div>
+
+            <div class="mb-3 form-group">
+              <input type="password" class="form-control" autocomplete="off" placeholder="Confirm Password*" formControlName="confirmpassword" required>
+              <small class="text-danger" *ngIf="registrationForm.get('confirmpassword')?.invalid && registrationForm.get('confirmpassword')?.touched">
+                Please Confirm Enter Password
+              </small>
+            </div>
+
+            <div class="modal-footer">
+              <button class="form-group btn btn-outline-success btn-register" [disabled]="!registrationForm.valid">Register</button>
+            </div>
+
+            <div class="form-group">
+              <div class="alert alert-danger" role="alert" *ngIf="isSignUpFailed">
+                signup failed: {{ errorMessage }}
+              </div>
+            </div>
+          </form>
+          <div class="alert alert-success" *ngIf="isSuccessful">
+            Registration is successful.
+          </div>
+ 

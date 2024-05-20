@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add Prescription</h4>
+  <button type="button" class="close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <textarea [(ngModel)]="prescriptionText" class="form-control" rows="8" placeholder="Enter prescription details here"></textarea>
+</div>
+<div class="modal-footer">
+   <button type="button" class="btn btn-secondary" (click)="close()">Close</button> 
+  <button type="button" class="btn btn-primary" (click)="savePrescription()">Save</button>
+</div>

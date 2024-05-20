@@ -1,0 +1,91 @@
+
+<div class="modal-body" [ngClass]="{'show': showModal}">
+    
+    <div class="modal-header">
+        
+        <h5 class="modal-title">Book Your New Appointments</h5>
+        <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      
+      </div>
+      
+        <form [formGroup]="bookappointmentform" (ngSubmit)="bookAppointment()">
+          <div class="form-group">
+            <label for="patientname">Patient Name : <b class="text-danger">*</b><small style="color: gray; font-size: 12px;"> (please enter full name of the patient with initial)</small></label>
+            <input type="text" class="form-control" placeholder="Enter your name" formControlName="patientname">
+            <small class="text-danger" *ngIf="bookappointmentform.get('patientname')?.invalid && bookappointmentform.get('patientname')?.touched"><b>required field</b></small>
+          </div>
+      
+          <div class="form-group">
+            <label for="email">Email address : <b class="text-danger">*</b><small style="color: gray; font-size: 12px;"> (please enter a valid email address)</small></label>
+            <input type="email" class="form-control" placeholder="Enter email address" formControlName="email">
+            <small class="text-danger" *ngIf="bookappointmentform.get('email')?.invalid && bookappointmentform.get('email')?.touched"><b>required field</b></small>
+          </div>
+      
+      
+          <div class="form-group">
+            <label for="specialization">Specialization : <b class="text-danger">*</b><small style="color: gray; font-size: 12px;">(choose from dropdown)</small></label>
+            <select class="form-control" formControlName="specialization">
+              <option selected disabled>Select speciality</option>
+              <option *ngFor="let speciality of specializations" [value]="speciality.id">{{ speciality.title }}</option>
+            </select>
+            <small class="text-danger" *ngIf="bookappointmentform.get('specialization')?.invalid && bookappointmentform.get('specialization')?.touched"><b>required field</b></small>
+          </div>
+          
+          <div class="form-group">
+            <label for="doctor">Choose Doctor : <b class="text-danger">*</b><small style="color: gray; font-size: 12px;">(choose from dropdown)</small></label>
+            <select class="form-control" formControlName="doctorname">
+              <option selected disabled>Select doctor</option>
+              <option *ngFor="let doctor of doctors" [value]="doctor.doctorid">{{ doctor.doctorname }}</option>
+            </select>
+            <small class="text-danger" *ngIf="bookappointmentform.get('doctorname')?.invalid && bookappointmentform.get('doctorname')?.touched"><b>required field</b></small>
+          </div>
+          
+
+
+          <div class="form-group">
+            <label for="date">Appointment Date : <b class="text-danger">*</b><small style="color: gray; font-size: 12px;"> (please choose proper date as per slot availability)</small></label>
+            <input type="date" class="form-control" placeholder="Choose appointment date" formControlName="startdate">
+            <small class="text-danger" *ngIf="bookappointmentform.get('startdate')?.invalid && bookappointmentform.get('startdate')?.touched"><b>required field</b></small>
+          </div>
+      
+          <div class="form-group">
+            <label for="slot">Appointment Slot : <b class="text-danger">*</b><small style="color: gray; font-size: 12px;">(choose from dropdown)</small></label>
+            <select class="form-control" formControlName="slot">
+              <option>9 AM to 10 AM</option>
+              <option>10 AM to 11 AM</option>
+              <option>11 AM to 12 PM</option>
+              <option>12 PM to 1 PM</option>
+              <option>1 PM to 2 PM</option>
+              <option>4 PM to 5 PM</option>
+              <option>5 PM to 6 PM</option>
+              <option>6 PM to 7 PM</option>
+            </select>
+          </div>
+      
+          <div class="form-group">
+            <label for="age">Patient Age : <b class="text-danger">*</b><small style="color: gray; font-size: 12px;"> (please enter proper age of the patient)</small></label>
+            <input type="number" class="form-control" placeholder="Enter your age" formControlName="age">
+            <small class="text-danger" *ngIf="bookappointmentform.get('age')?.invalid && bookappointmentform.get('age')?.touched"><b>required field</b></small>
+          </div>
+      
+          <div class="form-group">
+            <label for="gender">Patient Gender : <b class="text-danger">*</b></label>
+            <select class="form-control" formControlName="gender">
+              <option>Male</option>
+              <option>Female</option>
+              <option>Others</option>
+            </select>
+          </div>
+      
+          <div class="form-group">
+            <label for="problem">Patient's Problem : <b class="text-danger">*</b></label>
+            <input type="text" class="form-control" placeholder="Enter your problem" formControlName="problem">
+            <small class="text-danger" *ngIf="bookappointmentform.get('problem')?.invalid && bookappointmentform.get('problem')?.touched"><b>required field</b></small>
+          </div>
+      
+          <button style="margin-top: 15px;" [disabled]="bookappointmentform.invalid" type="submit" class="btn registerbtn"><i class="fa fa-plus"></i>&nbsp; Book Your Appointment</button>
+        </form>
+      </div>
+      

@@ -1,0 +1,33 @@
+
+<link rel="stylesheet" href="https://unpkg.com/@tabler/core@1.0.0-beta9/dist/css/tabler.min.css">
+
+  
+<table class="table table-vcenter">
+    <thead>
+      <tr>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;"><b>Doctor Name</b></th>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Patient Name</th>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Date</th>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Slot</th>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Appointment Status</th>
+        <th style="font-weight: bold; background-color: #f2f2f2; font-size: 12px;">Payment Status</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+     
+      <tr *ngFor="let appointment of appointments">
+        <!-- Doctor Name -->
+        <td>{{ appointment.doctorname }}</td>
+        <!-- Patient Name -->
+        <td>{{ appointment.patientname }}</td>
+        <!-- Date -->
+        <td>{{ appointment.startdate }}</td>
+
+        <td>{{ appointment.slot }}</td>
+
+        <td>{{ appointment.appointmentstatus }}</td>
+        <td>{{ appointment.paymentstatus }}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h4 class="modal-title">View Reports</h4>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li *ngFor="let report of reportList">
+        <a href="{{ report.documentUrl }}" target="_blank">{{ report.reportname }}</a>
+      </li>
+    </ul>
+    <div *ngIf="!reportList || reportList.length === 0" class="center-message">
+      <p style="font-weight: bolder;">No reports available.</p>
+    </div>
+  </div>
+  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+  </div>
+  
